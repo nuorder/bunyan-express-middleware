@@ -1,0 +1,38 @@
+{
+  "name": "bunyan-express-middleware",
+  "version": "0.0.1",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "NODE_ENV=testing BLUEBIRD_DEBUG=1 DEBUG=bunyan-express:* ./node_modules/mocha/bin/mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nuorder/bunyan-express-middleware.git"
+  },
+  "author": "Chen Liang <code@chen.technology>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nuorder/bunyan-express-middleware/issues"
+  },
+  "homepage": "https://github.com/nuorder/bunyan-express-middleware#readme",
+  "devDependencies": {
+    "bluebird": "^3.4.6",
+    "bunyan": "^1.8.1",
+    "chai": "^3.5.0",
+    "chai-things": "^0.2.0",
+    "eslint": "^3.4.0",
+    "eslint-config-airbnb-base": "^5.0.3",
+    "eslint-plugin-import": "^1.14.0",
+    "express": "^3.0.0",
+    "mocha": "^3.0.2",
+    "sinon": "^1.17.5",
+    "sinon-chai": "^2.8.0",
+    "supertest": "^2.0.0"
+  },
+  "dependencies": {
+    "debug": "^2.2.0",
+    "lodash": "^4.16.3",
+    "node-uuid": "^1.4.7"
+  }
+}

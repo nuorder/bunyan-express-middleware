@@ -96,8 +96,6 @@ describe('loggerCreator(logger, options)', function () {
           logObj.should.have.property('response_time');
           logObj.should.have.property('http_version');
           logObj.should.have.property('x-test-header', 'lol');
-          logObj.should.have.property('params')
-            .that.is.an('array');
 
           return done();
         });
@@ -124,8 +122,6 @@ describe('loggerCreator(logger, options)', function () {
           logObj.should.have.property('response_time');
           logObj.should.have.property('http_version');
           logObj.should.have.property('x-test-header', 'lol');
-          logObj.should.have.property('params')
-            .that.is.an('array');
 
           return done();
         });
@@ -152,8 +148,6 @@ describe('loggerCreator(logger, options)', function () {
           logObj.should.have.property('response_time');
           logObj.should.have.property('http_version');
           logObj.should.have.property('x-test-header', 'lol');
-          logObj.should.have.property('params')
-            .that.is.an('array');
 
           return done();
         });

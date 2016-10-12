@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## v0.0.5 (2016-10-12)
+* fixed get headers
+
 ## v0.0.4 (2016-10-12)
 * attach `{}` to `req` and capture `req` to bunyan
 * use `res.once` instead of `res.on`

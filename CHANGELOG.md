@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v0.0.4 (2016-10-12)
+* attach `{}` to `req` and capture `req` to bunyan
+* use `res.once` instead of `res.on`
+
 ## v0.0.3 (2016-10-03)
 * renamed `query` to `req_query`
 

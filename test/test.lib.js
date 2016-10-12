@@ -58,6 +58,7 @@ describe('loggerCreator(logger, options)', function () {
       });
       app.use(loggerMiddleware);
       app.get('/log', function (req, res) {
+        req.logs['test.req.log'] = 'testlog';
         res.status(200).json({ name: 'tobi' });
       });
       app.get('/not_found', function (req, res) {
@@ -96,7 +97,8 @@ describe('loggerCreator(logger, options)', function () {
           logObj.should.have.property('response_time');
           logObj.should.have.property('http_version');
           logObj.should.have.property('x-test-header', 'lol');
-
+          logObj.should.have.property('logs')
+            .that.has.property('test.req.log', 'testlog');
           return done();
         });
     });

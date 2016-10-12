@@ -96,7 +96,8 @@ describe('loggerCreator(logger, options)', function () {
           logObj.should.have.property('ip');
           logObj.should.have.property('response_time');
           logObj.should.have.property('http_version');
-          logObj.should.have.property('x-test-header', 'lol');
+          logObj.should.have.property('req_headers')
+            .that.has.property('x-test-header', 'lol');
           logObj.should.have.property('logs')
             .that.has.property('test.req.log', 'testlog');
           return done();
@@ -123,7 +124,8 @@ describe('loggerCreator(logger, options)', function () {
           logObj.should.have.property('ip');
           logObj.should.have.property('response_time');
           logObj.should.have.property('http_version');
-          logObj.should.have.property('x-test-header', 'lol');
+          logObj.should.have.property('req_headers')
+            .that.has.property('x-test-header', 'lol');
 
           return done();
         });
@@ -149,7 +151,9 @@ describe('loggerCreator(logger, options)', function () {
           logObj.should.have.property('ip');
           logObj.should.have.property('response_time');
           logObj.should.have.property('http_version');
-          logObj.should.have.property('x-test-header', 'lol');
+          logObj.should.have.property('req_headers')
+            .that.has.property('x-test-header', 'lol');
+          logObj.req_headers.should.have.property('user-agent');
 
           return done();
         });

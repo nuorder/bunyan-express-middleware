@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## v0.0.6 (2016-10-19)
+* added `res.logs = {}`
+
 ## v0.0.5 (2016-10-12)
 * fixed get headers
 

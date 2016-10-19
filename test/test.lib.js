@@ -67,6 +67,10 @@ describe('loggerCreator(logger, options)', function () {
       app.post('/error', function (req, res) {
         res.status(500).json({ name: 'tobi' });
       });
+      app.get('/res_logs', function (req, res) {
+        res.logs.err = new Error('asdfasdfadfsasdf');
+        res.status(200).json({ name: 'ok' });
+      });
       this.app = app;
     });
     afterEach(function () {
@@ -155,6 +159,36 @@ describe('loggerCreator(logger, options)', function () {
             .that.has.property('x-test-header', 'lol');
           logObj.req_headers.should.have.property('user-agent');
 
+          return done();
+        });
+    });
+    it('takes `res_logs`', function (done) {
+      request(this.app)
+        .get('/res_logs')
+        .set('x-test-header', 'lol')
+        .query({ token: 't' })
+        .expect(200)
+        .end((err) => {
+          if (err) {
+            return done(err);
+          }
+          this.logger.info.should.have.been.callCount(1);
+          const logObj = this.logger.info.args[0][0];
+          logObj.should.have.property('req_id');
+          logObj.should.have.property('statusCode', 200);
+          logObj.should.have.property('method', 'GET');
+          logObj.should.have.property('url', '/res_logs?token=t');
+          logObj.should.have.property('path', '/res_logs');
+          logObj.should.have.property('originalUrl');
+          logObj.should.have.property('ip');
+          logObj.should.have.property('response_time');
+          logObj.should.have.property('http_version');
+          logObj.should.have.property('req_headers')
+            .that.has.property('x-test-header', 'lol');
+          logObj.req_headers.should.have.property('user-agent');
+          logObj.should.have.property('res_logs')
+            .that.has.property('err');
+          logObj.res_logs.err.should.have.property('message', 'asdfasdfadfsasdf');
           return done();
         });
     });
